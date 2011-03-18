@@ -1,4 +1,4 @@
-Picturesque::Application.routes.draw do
+Picturesque::Application.routes.draw do |map|
   resources :spot_finders
 
   root :to => "spots#index"
@@ -6,5 +6,7 @@ Picturesque::Application.routes.draw do
   resources :spots
   resources :paintings do
     resources :comments
+  
   end
+  map.connect "/ddupload", :controller => "spots", :action => "ddupload"
 end

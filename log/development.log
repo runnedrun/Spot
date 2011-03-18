@@ -1,0 +1,1774 @@
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 13:50:51 -0400
+  Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (15.0ms)[0m  [1mSELECT "spots".* FROM "spots"[0m
+SQLite3::SQLException: no such table: spots: SELECT "spots".* FROM "spots"
+Completed   in 79ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: spots: SELECT "spots".* FROM "spots"):
+  app/controllers/spots_controller.rb:3:in `index'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (19.1ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.3ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (121.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (59.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateSpots (20110213032730)
+  [1m[36mSQL (0.9ms)[0m  [1mCREATE TABLE "spots" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110213032730')
+Migrating to CreatePaintings (20110213032940)
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE TABLE "paintings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "spot_id" integer, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110213032940')
+Migrating to AddImageToPaintings (20110213051146)
+  [1m[36mSQL (0.8ms)[0m  [1mALTER TABLE "paintings" ADD "image" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110213051146')
+Migrating to AddGpsToSpots (20110316072700)
+  [1m[36mSQL (0.7ms)[0m  [1mALTER TABLE "spots" ADD "longitude" float[0m
+  [1m[35mSQL (0.1ms)[0m  ALTER TABLE "spots" ADD "latitude" float
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110316072700')[0m
+Migrating to CreateSpotFinders (20110316074614)
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "spot_finders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "longitude" float, "latitude" float, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110316074614')[0m
+Migrating to CreateComments (20110317150353)
+  [1m[35mSQL (0.8ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "commenter" varchar(255), "body" text, "painting_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110317150353')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("comments")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("paintings")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("spot_finders")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("spots")
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 13:51:19 -0400
+  Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1mSELECT "spots".* FROM "spots"[0m
+Rendered spots/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 70ms (Views: 5.4ms | ActiveRecord: 0.4ms)
+
+LoadError (no such file to load -- openssl):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (18.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 13:57:04 -0400
+  Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1mSELECT "spots".* FROM "spots"[0m
+Rendered spots/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 69ms (Views: 5.2ms | ActiveRecord: 0.4ms)
+
+LoadError (no such file to load -- openssl):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (18.4ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 13:57:07 -0400
+  Processing by SpotsController#index as HTML
+  [1m[35mSpot Load (0.3ms)[0m  SELECT "spots".* FROM "spots"
+Rendered spots/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 13ms (Views: 5.4ms | ActiveRecord: 0.3ms)
+
+LoadError (no such file to load -- openssl):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 14:00:37 -0400
+  Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1mSELECT "spots".* FROM "spots"[0m
+Rendered spots/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 12ms (Views: 5.1ms | ActiveRecord: 0.3ms)
+
+LoadError (no such file to load -- openssl):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 14:00:39 -0400
+  Processing by SpotsController#index as HTML
+  [1m[35mSpot Load (0.3ms)[0m  SELECT "spots".* FROM "spots"
+Rendered spots/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 12ms (Views: 5.0ms | ActiveRecord: 0.3ms)
+
+LoadError (no such file to load -- openssl):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 14:14:40 -0400
+  Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1mSELECT "spots".* FROM "spots"[0m
+Rendered spots/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 88ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:14:40 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:14:40 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/new" for 127.0.0.1 at 2011-03-17 14:15:23 -0400
+  Processing by SpotsController#new as HTML
+Rendered spots/_form.html.erb (11.5ms)
+Rendered spots/new.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 52ms (Views: 26.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:15:23 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:15:23 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/spots" for 127.0.0.1 at 2011-03-17 14:15:33 -0400
+  Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5sXVlLS1PQ8acPJijOHQQSp3m6erLpY2/L6I8UyfFSI=", "spot"=>{"name"=>"myspot", "longitude"=>"23", "latitude"=>"23"}, "commit"=>"Create Spot"}
+  [1m[35mSQL (17.9ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "spots" ("name", "created_at", "updated_at", "longitude", "latitude") VALUES ('myspot', '2011-03-17 18:15:33.305635', '2011-03-17 18:15:33.305635', 23.0, 23.0)[0m
+Redirected to http://localhost:3000/spots/1
+Completed 302 Found in 136ms
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 14:15:33 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mPainting Load (0.1ms)[0m  [1mSELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/show.html.erb within layouts/application (135.8ms)
+Completed 200 OK in 149ms (Views: 138.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:15:33 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:15:33 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots" for 127.0.0.1 at 2011-03-17 14:15:37 -0400
+  Processing by SpotsController#index as HTML
+  [1m[35mSpot Load (0.4ms)[0m  SELECT "spots".* FROM "spots"
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/index.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 44ms (Views: 36.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:15:38 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:15:38 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spot_finders/new" for 127.0.0.1 at 2011-03-17 14:15:55 -0400
+  Processing by SpotFindersController#new as HTML
+Rendered spot_finders/_form.html.erb (5.9ms)
+Rendered spot_finders/new.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 29ms (Views: 20.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:15:55 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:15:55 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/spot_finders" for 127.0.0.1 at 2011-03-17 14:16:07 -0400
+  Processing by SpotFindersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5sXVlLS1PQ8acPJijOHQQSp3m6erLpY2/L6I8UyfFSI=", "spot_finder"=>{"name"=>"myspot", "longitude"=>"23", "latitude"=>"23"}, "commit"=>"Create Spot finder"}
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "spot_finders" ("name", "longitude", "latitude", "created_at", "updated_at") VALUES ('myspot', 23.0, 23.0, '2011-03-17 18:16:07.455730', '2011-03-17 18:16:07.455730')
+Redirected to http://localhost:3000/spot_finders/1
+Completed 302 Found in 121ms
+
+
+Started GET "/spot_finders/1" for 127.0.0.1 at 2011-03-17 14:16:07 -0400
+  Processing by SpotFindersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpotFinder Load (0.1ms)[0m  [1mSELECT "spot_finders".* FROM "spot_finders" WHERE ("spot_finders"."id" = 1) LIMIT 1[0m
+  [1m[35mSpot Load (0.2ms)[0m  SELECT "spots".* FROM "spots"
+Rendered spot_finders/show.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 82ms (Views: 54.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:16:07 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:16:08 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 14:16:12 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.2ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 43ms (Views: 31.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:16:13 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:16:13 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/paintings/new?spot_id=1" for 127.0.0.1 at 2011-03-17 14:16:16 -0400
+  Processing by PaintingsController#new as HTML
+  Parameters: {"spot_id"=>"1"}
+Rendered paintings/_form.html.erb (3.0ms)
+  [1m[36mSpot Load (0.9ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+Rendered paintings/new.html.erb within layouts/application (43.7ms)
+Completed 200 OK in 68ms (Views: 46.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:16:16 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:16:16 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/paintings" for 127.0.0.1 at 2011-03-17 14:16:50 -0400
+  Processing by PaintingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5sXVlLS1PQ8acPJijOHQQSp3m6erLpY2/L6I8UyfFSI=", "painting"=>{"spot_id"=>"1", "name"=>"u", "description"=>";alka;sld", "image"=>#<ActionDispatch::Http::UploadedFile:0xa31e980 @original_filename="thevikings.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"painting[image]\"; filename=\"thevikings.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:/tmp/RackMultipart20110317-27007-h6ogak>>, "remote_image_url"=>""}, "commit"=>"Create Painting"}
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "paintings" ("spot_id", "name", "description", "created_at", "updated_at", "image") VALUES (1, 'u', ';alka;sld', '2011-03-17 18:16:50.121753', '2011-03-17 18:16:50.121753', 'thevikings.txt')
+  [1m[36mSpot Load (0.2ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/spots/1
+Completed 302 Found in 190ms
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 14:16:50 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSpot Load (0.2ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mPainting Load (0.2ms)[0m  [1mSELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/show.html.erb within layouts/application (37.9ms)
+Completed 200 OK in 50ms (Views: 40.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:16:50 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:16:50 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/paintings/new?spot_id=1" for 127.0.0.1 at 2011-03-17 14:16:54 -0400
+  Processing by PaintingsController#new as HTML
+  Parameters: {"spot_id"=>"1"}
+Rendered paintings/_form.html.erb (21.0ms)
+  [1m[35mSpot Load (0.2ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+Rendered paintings/new.html.erb within layouts/application (42.9ms)
+Completed 200 OK in 67ms (Views: 45.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:16:54 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:16:54 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/paintings" for 127.0.0.1 at 2011-03-17 14:17:47 -0400
+  Processing by PaintingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5sXVlLS1PQ8acPJijOHQQSp3m6erLpY2/L6I8UyfFSI=", "painting"=>{"spot_id"=>"1", "name"=>"", "description"=>"", "remote_image_url"=>"http://lifeasa20something.files.wordpress.com/2010/12/blargh.jpg"}, "commit"=>"Create Painting"}
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "paintings" ("spot_id", "name", "description", "created_at", "updated_at", "image") VALUES (1, '', '', '2011-03-17 18:17:47.954026', '2011-03-17 18:17:47.954026', 'blargh.jpg')[0m
+  [1m[35mSpot Load (0.2ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/spots/1
+Completed 302 Found in 510ms
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 14:17:48 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (58.3ms)
+Completed 200 OK in 71ms (Views: 60.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:17:48 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (9.3ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 14:17:48 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 16:05:04 -0400
+DEPRECATION WARNING: You are using the old router DSL which will be removed in Rails 3.1. Please check how to update your routes file at: http://www.engineyard.com/blog/2010/the-lowdown-on-routes-in-rails-3/. (called from <top (required)> at /home/david/webdevstuff/Spot/config/routes.rb:1)
+
+SyntaxError (/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting '}'
+    render {"name" => image.url => "type"=> temp.e...
+                     ^
+/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting '}'
+... render {"name" => image.url => "type"=> temp.extname "size"...
+...                               ^
+/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting '}'
+..."name" => image.url => "type"=> temp.extname "size" => temp....
+...                               ^):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 16:05:24 -0400
+
+SyntaxError (/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting '}'
+    render {"name" => image.url, "type"=> temp.ext...
+                     ^
+/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+... {"name" => image.url, "type"=> temp.extname, "size" => temp...
+...                               ^
+/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...type"=> temp.extname, "size" => temp.size? }.to_json
+...                               ^):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 16:05:27 -0400
+
+SyntaxError (/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting '}'
+    render {"name" => image.url, "type"=> temp.ext...
+                     ^
+/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+... {"name" => image.url, "type"=> temp.extname, "size" => temp...
+...                               ^
+/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...type"=> temp.extname, "size" => temp.size? }.to_json
+...                               ^):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 16:08:08 -0400
+
+SyntaxError (/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting '}'
+    render {"name" =>image.url, "type" => temp.ext...
+                     ^
+/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+... {"name" =>image.url, "type" => temp.extname, "size" => temp...
+...                               ^
+/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...ype" => temp.extname, "size" => temp.size? }.to_json
+...                               ^):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 16:08:51 -0400
+
+SyntaxError (/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting '}'
+    render { "name" => image.url, "type" => temp.ex...
+                      ^
+/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+... "name" => image.url, "type" => temp.extname, "size" => temp...
+...                               ^
+/home/david/webdevstuff/Spot/app/controllers/spots_controller.rb:49: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...ype" => temp.extname, "size" => temp.size? }.to_json
+...                               ^):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 16:10:14 -0400
+  Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1mSELECT "spots".* FROM "spots"[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/index.html.erb within layouts/application (56.7ms)
+Completed 200 OK in 67ms (Views: 59.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:10:14 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:10:15 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 16:10:39 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.3ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (40.3ms)
+Completed 200 OK in 75ms (Views: 42.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:10:39 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:10:40 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 16:11:46 -0400
+  Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1mSELECT "spots".* FROM "spots"[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/index.html.erb within layouts/application (34.3ms)
+Completed 200 OK in 45ms (Views: 37.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:11:46 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:11:46 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 16:11:52 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (60.0ms)
+Completed 200 OK in 73ms (Views: 62.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:11:52 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:11:53 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 16:19:01 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (59.9ms)
+Completed 200 OK in 73ms (Views: 62.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 16:19:01 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:19:01 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 16:19:02 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:19:02 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 16:21:22 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (39.3ms)
+Completed 200 OK in 52ms (Views: 42.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:21:22 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:21:22 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 16:21:34 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (61.7ms)
+Completed 200 OK in 75ms (Views: 64.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:21:34 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:21:34 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-17 16:24:40 -0400
+  Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1mSELECT "spots".* FROM "spots"[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/index.html.erb within layouts/application (54.8ms)
+Completed 200 OK in 66ms (Views: 57.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:24:40 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:24:40 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 16:24:42 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (60.8ms)
+Completed 200 OK in 73ms (Views: 63.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:24:42 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:24:43 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 16:37:13 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.2ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (59.7ms)
+Completed 200 OK in 73ms (Views: 62.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:37:13 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 16:38:50 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (59.9ms)
+Completed 200 OK in 73ms (Views: 62.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:38:50 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:38:50 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 16:38:52 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (60.8ms)
+Completed 200 OK in 74ms (Views: 63.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:38:52 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 16:41:09 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (1.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 75ms (Views: 42.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:41:09 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 16:41:10 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 16:59:28 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (390.7ms)
+Completed   in 404ms
+
+ActionView::Template::Error (No expansion found for :default):
+    3:   <head>
+    4:     <title><%= content_for?(:title) ? yield(:title) : "Spot" %></title>
+    5:     
+    6:     <%= javascript_include_tag :default %>
+    7:     <%= csrf_meta_tag %>
+    8:     <%= yield(:head) %>
+    9: 
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__727400079_95563210__687316803'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.6ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.5ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 17:00:58 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (61.7ms)
+Completed 200 OK in 75ms (Views: 64.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 17:00:58 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 17:00:58 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 17:00:59 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 17:00:59 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-17 17:01:41 -0400
+  Processing by SpotsController#ddupload as HTML
+Completed   in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (22.7ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.2ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 17:16:23 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.2ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (60.1ms)
+Completed 200 OK in 73ms (Views: 62.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 17:16:23 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 17:16:23 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 17:16:24 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 17:16:24 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/stylesheets/pbar-ani.gif" for 127.0.0.1 at 2011-03-17 17:16:41 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/pbar-ani.gif"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-17 17:16:42 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0xb2a26b8 @original_filename="ArmiesTactics.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"ArmiesTactics.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:/tmp/RackMultipart20110317-27007-oz2b9p>>}
+Completed   in 7ms
+
+ActiveRecord::RecordNotFound (Couldn't find Spot without an ID):
+  app/controllers/spots_controller.rb:45:in `ddupload'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.3ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.3ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-17 17:17:03 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0xb7b5ba0 @original_filename="ArmiesTactics.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"ArmiesTactics.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:/tmp/RackMultipart20110317-27007-vk4cuz>>}
+Completed   in 7ms
+
+ActiveRecord::RecordNotFound (Couldn't find Spot without an ID):
+  app/controllers/spots_controller.rb:45:in `ddupload'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.3ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 17:17:52 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (61.9ms)
+Completed 200 OK in 76ms (Views: 64.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 17:17:53 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 17:17:53 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 17:17:53 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 17:17:53 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 17:17:56 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (60.8ms)
+Completed 200 OK in 74ms (Views: 63.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 17:17:56 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 17:17:56 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 17:17:56 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 17:17:56 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/stylesheets/pbar-ani.gif" for 127.0.0.1 at 2011-03-17 17:18:03 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/pbar-ani.gif"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-17 17:18:03 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"id"=>"1", "file"=>#<ActionDispatch::Http::UploadedFile:0xb6abda4 @original_filename="ArmiesTactics.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"ArmiesTactics.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:/tmp/RackMultipart20110317-27007-1c9ola0>>}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (1.9ms)[0m  INSERT INTO "paintings" ("spot_id", "name", "description", "created_at", "updated_at", "image") VALUES (NULL, NULL, NULL, '2011-03-17 21:18:03.587303', '2011-03-17 21:18:03.587303', 'armiestactics.txt')
+Completed   in 162ms
+
+NoMethodError (undefined method `url' for #<Painting:0xb612dfc>):
+  app/controllers/spots_controller.rb:48:in `ddupload'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.4ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.4ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-17 17:20:30 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.2ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (61.0ms)
+Completed 200 OK in 74ms (Views: 63.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 17:20:31 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 17:20:31 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-17 17:20:31 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-17 17:20:31 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/stylesheets/pbar-ani.gif" for 127.0.0.1 at 2011-03-17 17:20:42 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/pbar-ani.gif"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.7ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-17 17:20:42 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"id"=>"1", "file"=>#<ActionDispatch::Http::UploadedFile:0xab7a188 @original_filename="ArmiesTactics.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"ArmiesTactics.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:/tmp/RackMultipart20110317-27007-kvhsz4>>}
+  [1m[36mSpot Load (0.6ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "paintings" ("spot_id", "name", "description", "created_at", "updated_at", "image") VALUES (NULL, NULL, NULL, '2011-03-17 21:20:43.049184', '2011-03-17 21:20:43.049184', 'armiestactics.txt')
+Completed   in 151ms
+
+NoMethodError (undefined method `url' for #<Painting:0xb71c298>):
+  app/controllers/spots_controller.rb:50:in `ddupload'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.7ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.8ms)
+DEPRECATION WARNING: You are using the old router DSL which will be removed in Rails 3.1. Please check how to update your routes file at: http://www.engineyard.com/blog/2010/the-lowdown-on-routes-in-rails-3/. (called from <top (required)> at /home/david/webdevstuff/Spot/config/routes.rb:1)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-18 11:39:12 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mPainting Load (0.3ms)[0m  [1mSELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/show.html.erb within layouts/application (158.4ms)
+Completed 200 OK in 246ms (Views: 160.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 11:39:13 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 11:39:13 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 11:39:13 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 11:39:13 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/stylesheets/pbar-ani.gif" for 127.0.0.1 at 2011-03-18 11:40:10 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/pbar-ani.gif"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-18 11:40:10 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"id"=>"1", "file"=>#<ActionDispatch::Http::UploadedFile:0xa150540 @original_filename="Armies.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Armies.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:/tmp/RackMultipart20110318-32112-cfeuoc>>}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "paintings" ("spot_id", "name", "description", "created_at", "updated_at", "image") VALUES (NULL, NULL, NULL, '2011-03-18 15:40:10.645246', '2011-03-18 15:40:10.645246', 'armies.txt')[0m
+Completed   in 166ms
+
+NoMethodError (undefined method `url' for #<Painting:0xa302410>):
+  app/controllers/spots_controller.rb:50:in `ddupload'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.1ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.4ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-18 12:22:04 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mPainting Load (0.3ms)[0m  [1mSELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/show.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 71ms (Views: 42.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 12:22:04 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 12:22:04 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 12:22:04 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 12:22:04 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/stylesheets/pbar-ani.gif" for 127.0.0.1 at 2011-03-18 12:22:18 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/pbar-ani.gif"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-18 12:22:18 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"id"=>"1", "file"=>#<ActionDispatch::Http::UploadedFile:0xa0d9800 @original_filename="Armies.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Armies.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:/tmp/RackMultipart20110318-32112-1ofzthy>>}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "paintings" ("spot_id", "name", "description", "created_at", "updated_at", "image") VALUES (NULL, NULL, NULL, '2011-03-18 16:22:18.820302', '2011-03-18 16:22:18.820302', 'armies.txt')[0m
+Completed   in 158ms
+
+Errno::ENOENT (No such file or directory - /uploads/painting/image/6/armies.txt):
+  app/controllers/spots_controller.rb:50:in `initialize'
+  app/controllers/spots_controller.rb:50:in `new'
+  app/controllers/spots_controller.rb:50:in `ddupload'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.7ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.8ms)
+DEPRECATION WARNING: You are using the old router DSL which will be removed in Rails 3.1. Please check how to update your routes file at: http://www.engineyard.com/blog/2010/the-lowdown-on-routes-in-rails-3/. (called from <top (required)> at /home/david/webdevstuff/Spot/config/routes.rb:1)
+DEPRECATION WARNING: You are using the old router DSL which will be removed in Rails 3.1. Please check how to update your routes file at: http://www.engineyard.com/blog/2010/the-lowdown-on-routes-in-rails-3/. (called from <top (required)> at /home/david/webdevstuff/Spot/config/routes.rb:1)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-18 14:15:27 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mPainting Load (0.3ms)[0m  [1mSELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/show.html.erb within layouts/application (248.0ms)
+Completed 200 OK in 419ms (Views: 270.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:15:28 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:15:28 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:15:28 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:15:28 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+  [1m[36mPainting Load (1.2ms)[0m  [1mSELECT "paintings".* FROM "paintings"[0m
+  [1m[35mPainting Load (3.5ms)[0m  SELECT "paintings".* FROM "paintings"
+  [1m[36mPainting Load (3.1ms)[0m  [1mSELECT "paintings".* FROM "paintings"[0m
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-18 14:23:49 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mPainting Load (0.3ms)[0m  [1mSELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/show.html.erb within layouts/application (58.9ms)
+Completed 200 OK in 72ms (Views: 61.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:23:49 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:23:49 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:23:49 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:23:49 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (25.1ms)
+
+
+Started GET "/stylesheets/pbar-ani.gif" for 127.0.0.1 at 2011-03-18 14:24:19 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/pbar-ani.gif"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-18 14:24:19 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"id"=>"1", "file"=>#<ActionDispatch::Http::UploadedFile:0xaecd7b8 @original_filename="ArmiesStrat.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"ArmiesStrat.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:/tmp/RackMultipart20110318-14257-s8i3s3>>}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "paintings" ("spot_id", "name", "description", "created_at", "updated_at", "image") VALUES (NULL, NULL, NULL, '2011-03-18 18:24:19.556728', '2011-03-18 18:24:19.556728', 'armiesstrat.txt')[0m
+Completed   in 180ms
+
+ActionView::MissingTemplate (Missing template spots/ddupload with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:json, :js, :"*/*"], :locale=>[:en, :en]} in view paths "/home/david/webdevstuff/Spot/app/views"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.5ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-18 14:25:13 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mPainting Load (0.3ms)[0m  [1mSELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/show.html.erb within layouts/application (62.0ms)
+Completed 200 OK in 76ms (Views: 65.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:25:13 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:25:13 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:25:14 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/stylesheets/pbar-ani.gif" for 127.0.0.1 at 2011-03-18 14:25:20 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/pbar-ani.gif"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-18 14:25:20 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"id"=>"1", "file"=>#<ActionDispatch::Http::UploadedFile:0xaf98c4c @original_filename="ArmiesStrat.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"ArmiesStrat.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:/tmp/RackMultipart20110318-14257-1896387>>}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "paintings" ("spot_id", "name", "description", "created_at", "updated_at", "image") VALUES (NULL, NULL, NULL, '2011-03-18 18:25:21.088618', '2011-03-18 18:25:21.088618', 'armiesstrat.txt')[0m
+Completed   in 144ms
+
+ActionView::MissingTemplate (Missing template spots/{"name":"armiesstrat.txt","type":"txt","size":2139} with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:json, :js, :"*/*"], :locale=>[:en, :en]} in view paths "/home/david/webdevstuff/Spot/app/views"):
+  app/controllers/spots_controller.rb:52:in `ddupload'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-18 14:28:12 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mPainting Load (0.3ms)[0m  [1mSELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/show.html.erb within layouts/application (59.0ms)
+Completed 200 OK in 72ms (Views: 61.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:28:12 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:28:12 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:28:13 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:28:13 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/stylesheets/pbar-ani.gif" for 127.0.0.1 at 2011-03-18 14:28:31 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/pbar-ani.gif"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-18 14:28:32 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"id"=>"1", "file"=>#<ActionDispatch::Http::UploadedFile:0xb00f130 @original_filename="ArmiesStrat.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"ArmiesStrat.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:/tmp/RackMultipart20110318-14257-14v8kk>>}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "paintings" ("spot_id", "name", "description", "created_at", "updated_at", "image") VALUES (NULL, NULL, NULL, '2011-03-18 18:28:32.460246', '2011-03-18 18:28:32.460246', 'armiesstrat.txt')[0m
+Completed 200 OK in 172ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/spots/undefined" for 127.0.0.1 at 2011-03-18 14:28:33 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 0) LIMIT 1
+Completed   in 10ms
+
+ActiveRecord::RecordNotFound (Couldn't find Spot with ID=undefined):
+  app/controllers/spots_controller.rb:9:in `show'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.6ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-18 14:29:04 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"id"=>"1", "file"=>#<ActionDispatch::Http::UploadedFile:0xad5a8f4 @original_filename="Gaynor4letterpassword.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Gaynor4letterpassword.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110318-14257-2r7lks>>}
+  [1m[36mSpot Load (0.2ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "paintings" ("spot_id", "name", "description", "created_at", "updated_at", "image") VALUES (NULL, NULL, NULL, '2011-03-18 18:29:04.283062', '2011-03-18 18:29:04.283062', 'gaynor4letterpassword.jpg')
+Completed 200 OK in 157ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spots/undefined" for 127.0.0.1 at 2011-03-18 14:29:04 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 0) LIMIT 1[0m
+Completed   in 11ms
+
+ActiveRecord::RecordNotFound (Couldn't find Spot with ID=undefined):
+  app/controllers/spots_controller.rb:9:in `show'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (21.8ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.9ms)
+  [1m[35mPainting Load (5.7ms)[0m  SELECT "paintings".* FROM "paintings"
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-18 14:29:33 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mPainting Load (0.2ms)[0m  [1mSELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/show.html.erb within layouts/application (57.8ms)
+Completed 200 OK in 71ms (Views: 60.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:29:33 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:29:33 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:29:34 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:29:34 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-18 14:31:17 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mPainting Load (0.3ms)[0m  [1mSELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/show.html.erb within layouts/application (39.7ms)
+Completed 200 OK in 53ms (Views: 42.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:31:17 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:31:17 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:31:18 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:31:18 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/stylesheets/pbar-ani.gif" for 127.0.0.1 at 2011-03-18 14:31:23 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/pbar-ani.gif"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-18 14:31:24 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"id"=>"1", "file"=>#<ActionDispatch::Http::UploadedFile:0xa891ee4 @original_filename="Gaynor4letterpassword.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Gaynor4letterpassword.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110318-14257-purr1o>>}
+  [1m[35mSpot Load (0.2ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+Completed   in 36ms
+
+NoMethodError (undefined method `create_painting' for #<Spot:0xb04f76c>):
+  app/controllers/spots_controller.rb:48:in `ddupload'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.5ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.5ms)
+  [1m[36mSpot Load (0.6ms)[0m  [1mSELECT "spots".* FROM "spots"[0m
+  [1m[35mPainting Load (0.5ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-18 14:37:21 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mPainting Load (0.3ms)[0m  SELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)
+Rendered spots/show.html.erb within layouts/application (59.2ms)
+Completed 200 OK in 73ms (Views: 61.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:37:21 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:37:21 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:37:21 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:37:21 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/stylesheets/pbar-ani.gif" for 127.0.0.1 at 2011-03-18 14:37:46 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/pbar-ani.gif"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/ddupload" for 127.0.0.1 at 2011-03-18 14:37:46 -0400
+  Processing by SpotsController#ddupload as JSON
+  Parameters: {"id"=>"1", "file"=>#<ActionDispatch::Http::UploadedFile:0xae85300 @original_filename="Gaynor4letternumpassword.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Gaynor4letternumpassword.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110318-14257-2ye1s2>>}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "paintings" ("spot_id", "name", "description", "created_at", "updated_at", "image") VALUES (1, NULL, NULL, '2011-03-18 18:37:46.722253', '2011-03-18 18:37:46.722253', 'gaynor4letternumpassword.jpg')
+Completed 200 OK in 199ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spots/undefined" for 127.0.0.1 at 2011-03-18 14:37:47 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mSpot Load (0.1ms)[0m  [1mSELECT "spots".* FROM "spots" WHERE ("spots"."id" = 0) LIMIT 1[0m
+Completed   in 10ms
+
+ActiveRecord::RecordNotFound (Couldn't find Spot with ID=undefined):
+  app/controllers/spots_controller.rb:9:in `show'
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+  [1m[36mPainting Load (6.2ms)[0m  [1mSELECT "paintings".* FROM "paintings"[0m
+
+
+Started GET "/spots/1" for 127.0.0.1 at 2011-03-18 14:38:06 -0400
+  Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSpot Load (0.1ms)[0m  SELECT "spots".* FROM "spots" WHERE ("spots"."id" = 1) LIMIT 1
+  [1m[36mPainting Load (0.6ms)[0m  [1mSELECT "paintings".* FROM "paintings" WHERE ("paintings".spot_id = 1)[0m
+Rendered spots/show.html.erb within layouts/application (60.2ms)
+Completed 200 OK in 73ms (Views: 62.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/javascripts/dragdrop.js" for 127.0.0.1 at 2011-03-18 14:38:07 -0400
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:38:07 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/Javascripts/ContentFlow/contentflow.js" for 127.0.0.1 at 2011-03-18 14:38:07 -0400
+
+ActionController::RoutingError (No route matches "/Javascripts/ContentFlow/contentflow.js"):
+  
+
+Rendered /home/david/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)

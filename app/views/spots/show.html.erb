@@ -1,5 +1,31 @@
 <% title @spot.name %>
 
+<%= stylesheet_link_tag('jquery.fileupload-ui') %>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+<%= javascript_include_tag 'jquery.fileupload', 'jquery.fileupload-ui' %>
+
+<script type="text/javascript" charset="utf-8"> 
+   $(function () {
+  $('#file_upload').fileUploadUI({
+        uploadTable: $('#files'),
+        downloadTable: $('#files'),
+        buildUploadRow: function (files, index) {
+            var file = files[index];
+            return $('<tr><td>' + file.name + '<\/td>' +
+                    '<td class="file_upload_progress"><div><\/div><\/td>' +
+                    '<td class="file_upload_cancel">' +
+                    '<button class="ui-state-default ui-corner-all" title="Cancel">' +
+                    '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
+                    '<\/button><\/td><\/tr>');
+        },
+        buildDownloadRow: function (file) {
+            return $('<tr><td><img alt="Photo" width="40" height="40" src="' + file.pic_path + '">' + file.name + '<\/td><\/tr>');
+        },
+    });
+});
+</script>
 
 <div class="ContentFlow">
     <div class="loadIndicator"><div class="indicator"></div></div>
@@ -23,9 +49,22 @@
       <% end %>
 
     </div>
-    <div class="globalCaption"></div>
-    <div class="scrollbar"><div class="slider"><div class="position"></div></div></div>
 </div>
+    </br>
+
+  
+
+    <form id="file_upload" action="/ddupload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" multiple>
+    <input type="hidden" name="id" value="<%= @spot.id %>" >
+    <button>Upload</button>
+    <div>Upload files</div>
+</form>
+  
+    <div class="globalCaption"></div>
+    <div class="scrollbar"><div class="slider"><div class="position"></div></div>
+
+<table id="files"></table>
 
 
 
@@ -34,3 +73,6 @@
   <%= link_to "Remove Spot", @spot, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View Spots", spots_path %>
 </p>
+
+
+

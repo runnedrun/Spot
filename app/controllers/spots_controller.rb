@@ -1,4 +1,6 @@
 class SpotsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+  
   def index
     @spots  = Spot.all
   end
@@ -41,4 +43,15 @@ class SpotsController < ApplicationController
     flash[:notice] = "Successfully destroyed spot."
     redirect_to spots_url
   end
+  def ddupload
+    spot = Spot.find(params[:id])
+    paint = spot.paintings.build(:image => params[:file])
+    paint.save 
+    spot.save
+    name = paint.image.url.split("/")[-1]
+    ret = { "name" => name , "type" => name.split(".")[-1], "size" => paint.image.size}
+    render :json => ret.to_json
+
+  end
+      
 end
